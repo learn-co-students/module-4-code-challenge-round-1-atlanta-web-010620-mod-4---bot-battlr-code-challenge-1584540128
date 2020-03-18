@@ -1,19 +1,15 @@
 import React from "react";
 import BotCard from "../components/BotCard";
 
-class BotCollection extends React.Component {
-  //your code here
+const BotCollection = (props) => {
 
-  render(){
-  	return (
-  	  <div className="ui four column grid">
-    		<div className="row">
-    		  {/*...and here..*/}
-    		  Collection of all bots
-    		</div>
-  	  </div>
-  	);
-  }
+		return (
+		<div className="ui four column grid">
+				<div className="row">
+				{props.bots.map(bot => <BotCard handleClick={props.showBotDetails} bot={bot}/>)}
+				</div>
+		</div>
+		);
 
 };
 
