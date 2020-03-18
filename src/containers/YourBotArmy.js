@@ -2,7 +2,9 @@ import React from "react";
 import BotCard from "../components/BotCard";
 
 class YourBotArmy extends React.Component {
-
+state={
+		isHidden:true
+	}
   displayBots = (bots) => {
 		return bots.map(bot => <BotCard bot={bot} botClick={this.props.botClick} key={bot.id}/>)
 	}
