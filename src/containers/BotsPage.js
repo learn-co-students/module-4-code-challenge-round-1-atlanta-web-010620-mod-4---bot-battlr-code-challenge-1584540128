@@ -40,15 +40,20 @@ class BotsPage extends React.Component {
   }
 
   botSpecsEnlistClick = (bot) => {
-    (this.state.botArmy.filter(filterBot => filterBot.id === bot.id).length < 1)
+    this.isBotInArmy(bot)
     ?
-    this.setState({botArmy:[...this.state.botArmy,bot],show:'botCollection'})
-    :
     null
+    :
+    this.setState({botArmy:[...this.state.botArmy,bot],show:'botCollection'})
   }
 
   botSpecsGoBackClick = () => {
     this.setState({show:'botCollection'})
+  }
+
+  // helper function to check if the selected bot is already in the bot army 
+  isBotInArmy = (bot) => {
+    return (this.state.botArmy.filter(filterBot => filterBot.id === bot.id).length > 0)
   }
 
   render() {
